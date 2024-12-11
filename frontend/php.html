@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to PHP</h1>
+        <h2>What is PHP?</h2>
+        <p>PHP (Hypertext Preprocessor) is a popular, open-source server-side scripting language designed for web development. PHP is especially suited for creating dynamic web pages that interact with databases and deliver content based on user input. It is widely used to build server-side applications and is often embedded within HTML to generate content dynamically.</p>
+
+        <h2>Why Should You Learn PHP?</h2>
+        <ul>
+            <li><strong>Widely Used for Web Development:</strong> PHP is used by many websites and web applications, including major platforms like WordPress, Facebook, and Wikipedia.</li>
+            <li><strong>Server-Side Scripting:</strong> PHP runs on the server, allowing for more secure and dynamic content generation, such as forms, databases, and user authentication.</li>
+            <li><strong>Easy to Learn:</strong> PHP has a relatively simple syntax that makes it an excellent language for beginners.</li>
+            <li><strong>Integration with Databases:</strong> PHP integrates well with databases, especially MySQL, making it ideal for dynamic web applications.</li>
+        </ul>
+
+        <h2>Basic PHP Syntax</h2>
+        <p>PHP code is embedded within an HTML document using PHP tags. PHP scripts are executed on the server, and the resulting output (usually HTML) is sent to the client’s browser.</p>
+        <div class="code">
+            &lt;?php<br>
+            &nbsp;&nbsp;echo "Hello, World!";<br>
+            ?&gt;
+        </div>
+        <p>The above code will display the message "Hello, World!" in the browser. Here’s a breakdown:</p>
+        <ul>
+            <li><strong>&lt;?php ... ?&gt;:</strong> PHP code is written between the <code>&lt;?php</code> and <code>?&gt;</code> tags.</li>
+            <li><strong>echo:</strong> The <code>echo</code> statement is used to output text or HTML to the browser.</li>
+        </ul>
+
+        <h2>Variables in PHP</h2>
+        <p>Variables in PHP are used to store data. They start with the dollar sign (<code>$</code>) followed by the variable name. PHP is loosely typed, which means you do not need to declare a variable’s data type.</p>
+        <div class="code">
+            &lt;?php<br>
+            &nbsp;&nbsp;$name = "John";<br>
+            &nbsp;&nbsp;$age = 25;<br>
+            &nbsp;&nbsp;echo "Name: " . $name . "<br>";<br>
+            &nbsp;&nbsp;echo "Age: " . $age . "<br>";<br>
+            ?&gt;
+        </div>
+        <p>The above PHP code defines two variables, <code>$name</code> and <code>$age</code>, and displays them on the web page using <code>echo</code>.</p>
+
+        <h2>PHP Data Types</h2>
+        <p>PHP supports several data types, including:</p>
+        <ul>
+            <li><strong>String:</strong> A sequence of characters. Example: <code>$name = "John";</code></li>
+            <li><strong>Integer:</strong> Whole numbers. Example: <code>$age = 25;</code></li>
+            <li><strong>Float (Double):</strong> Decimal numbers. Example: <code>$price = 19.99;</code></li>
+            <li><strong>Boolean:</strong> Represents true or false. Example: <code>$isStudent = true;</code></li>
+            <li><strong>Array:</strong> A collection of values. Example: <code>$fruits = array("apple", "banana", "cherry");</code></li>
+            <li><strong>Object:</strong> An instance of a class. Example: <code>$car = new Car();</code></li>
+        </ul>
+
+        <h2>Control Structures in PHP</h2>
+        <p>PHP offers several control structures to manage the flow of execution in your programs. These include conditionals (if, else), loops (for, while), and switch statements.</p>
+        <h3>If/Else Statement</h3>
+        <div class="code">
+            &lt;?php<br>
+            &nbsp;&nbsp;$x = 10;<br>
+            &nbsp;&nbsp;if ($x > 5) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;echo "x is greater than 5";<br>
+            &nbsp;&nbsp;} else {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;echo "x is less than or equal to 5";<br>
+            &nbsp;&nbsp;}<br>
+            ?&gt;
+        </div>
+        <p>This code checks if the value of <code>$x</code> is greater than 5 and outputs the appropriate message based on the condition.</p>
+
+        <h3>For Loop</h3>
+        <div class="code">
+            &lt;?php<br>
+            &nbsp;&nbsp;for ($i = 0; $i < 5; $i++) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;echo "The value of i is: $i<br>";<br>
+            &nbsp;&nbsp;}<br>
+            ?&gt;
+        </div>
+        <p>The <code>for</code> loop is used to repeat a block of code for a specified number of iterations. In this case, it loops 5 times and prints the value of <code>$i</code>.</p>
+
+        <h2>PHP Functions</h2>
+        <p>Functions in PHP are used to encapsulate reusable blocks of code. You can define your own functions using the <code>function</code> keyword.</p>
+        <div class="code">
+            &lt;?php<br>
+            &nbsp;&nbsp;function greet($name) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;echo "Hello, " . $name . "!<br>";<br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;greet("Alice");<br>
+            ?&gt;
+        </div>
+        <p>This example defines a function <code>greet()</code> that accepts a parameter <code>$name</code> and outputs a greeting message. It is then called with the argument "Alice".</p>
+
+        <h2>Connecting PHP with MySQL</h2>
+        <p>PHP is commonly used with MySQL to interact with databases. Here’s an example of how to connect to a MySQL database:</p>
+        <div class="code">
+            &lt;?php<br>
+            &nbsp;&nbsp;$servername = "localhost";<br>
+            &nbsp;&nbsp;$username = "root";<br>
+            &nbsp;&nbsp;$password = "";<br>
+            &nbsp;&nbsp;$dbname = "myDB";<br>
+            &nbsp;&nbsp; // Create connection<br>
+            &nbsp;&nbsp;$conn = new mysqli($servername, $username, $password, $dbname);<br>
+            &nbsp;&nbsp;if ($conn->connect_error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;die("Connection failed: " . $conn->connect_error);<br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;echo "Connected successfully";<br>
+            ?&gt;
+        </div>
+        <p>This code connects to a MySQL database using the MySQLi extension. It checks if the connection is successful and prints a success message.</p>
+
+        <h2>Conclusion</h2>
+        <p>PHP is an essential language for web development, enabling the creation of dynamic and interactive websites. It can be used alongside HTML to create data-driven websites, process forms, interact with databases, and much more. With its simple syntax and powerful capabilities, learning PHP is an excellent step toward becoming a web developer.</p>
+    </div>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

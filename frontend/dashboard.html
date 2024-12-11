@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteBuddy Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Full-Screen Dashboard -->
+    <section class="dashboard">
+        <!-- Announcement Section -->
+        <section class="announcement">
+            <h2>Welcome to Your Coding Journey!</h2>
+            <p>Choose a programming language to start learning with your coding companion!</p>
+        </section>
+
+        <!-- Sliding Cards for Programming Languages -->
+        <h2>Select a Course:</h2>
+        <section class="language-selection">
+            <div class="card-container">
+                <!-- Python Card -->
+                <div class="card" id="python-card" data-language="python">
+                    <h3>Python</h3>
+                </div>
+            
+                <!-- JavaScript Card -->
+                <div class="card" id="javascript-card" data-language="javascript">
+                    <h3>Java <br>Script</h3>
+                </div>
+            
+                <!-- Java Card -->
+                <div class="card" id="java-card" data-language="java">
+                    <h3>Java</h3>
+                </div>
+            
+                <!-- C Card -->
+                <div class="card" id="c-card" data-language="c">
+                    <h3>C</h3>
+                </div>
+            
+                <!-- C++ Card -->
+                <div class="card" id="cpp-card" data-language="cpp">
+                    <h3>C++</h3>
+                </div>
+            
+                <!-- HTML Card -->
+                <div class="card" id="html-card" data-language="html">
+                    <h3>HTML</h3>
+                </div>
+            
+                <!-- PHP Card -->
+                <div class="card" id="php-card" data-language="php">
+                    <h3>PHP</h3>
+                </div>
+            
+                <!-- MySQL Card -->
+                <div class="card" id="mysql-card" data-language="mysql">
+                    <h3>MySQL</h3>
+                </div>
+            </div>           
+            
+        </section>
+
+        <footer class="dashboard-footer">
+    <button class="active" onclick="window.location.href='dashboard.html'">
+        <img src="images/HomeIcon.png" alt="Home">
+        HOME
+    </button>
+    </button>
+    <button onclick="window.location.href='quiz.html'">
+        <img src="images/quizicon.png" alt="Quiz">
+        QUIZ
+    </button>
+    <button onclick="window.location.href='IDE.html'">
+        <img src="images/projectsicon.png" alt="Projects">
+        PROJECTS
+    </button>
+    <button onclick="window.location.href='assistance.html'">
+        <img src="images/assistanticon.png" alt="Assistance Buddy">
+        ASSISTANCE BUDDY
+    </button>
+    <button onclick="window.location.href='profile.html'">
+        <img src="images/profileicon.png" alt="Profile">
+        ME
+    </button>
+</footer>
+
+    </section>
+    <script>
+        // Add event listeners to the cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                const selectedLanguage = this.getAttribute('data-language');
+                let pageUrl = '';
+    
+                // Determine the corresponding page URL
+                switch (selectedLanguage) {
+                    case 'python':
+                        pageUrl = 'python.html';
+                        break;
+                    case 'javascript':
+                        pageUrl = 'javascript.html';
+                        break;
+                    case 'java':
+                        pageUrl = 'java.html';
+                        break;
+                    case 'c':
+                        pageUrl = 'c.html';
+                        break;
+                    case 'cpp':
+                        pageUrl = 'cpp.html';
+                        break;
+                    case 'html':
+                        pageUrl = 'html.html';
+                        break;
+                    case 'php':
+                        pageUrl = 'php.html';
+                        break;
+                    case 'mysql':
+                        pageUrl = 'mysql.html';
+                        break;
+                }
+    
+                // Redirect to the page
+                window.location.href = pageUrl;
+            });
+        });
+    </script>
+</body>
+</html>
+

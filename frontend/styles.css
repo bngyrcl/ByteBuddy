@@ -1,0 +1,114 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #003366 10%, #004d4d 50%, #000000 90%); /* Blue in the top-left, green, and black gradient */
+}
+
+/* Blurry background using ::before pseudo-element */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #003366 10%, #004d4d 50%, #000000 90%); /* Blue in the top-left, green, and black gradient */
+    filter: blur(8px); /* Apply blur effect only to this background layer */
+    z-index: -1;
+    background-size: cover;
+}
+
+/* Content container styling */
+.container {
+    text-align: center;
+    padding: 30px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header and section styling */
+header {
+    margin-bottom: 20px;
+}
+
+/* Header styling */
+h1 {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    font-size: 3rem;
+    font-weight: 700; /* Bold text */
+    color: #ffffff;
+    background: linear-gradient(45deg, #FF6347, #7FDBFF); /* Gradient text color */
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+}
+
+
+p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#intro h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.cursive {
+    font-family: 'Brush Script MT', cursive; /* Fallback to cursive if Brush Script is unavailable */
+    font-style: italic;
+    color: #0ed87a; /* Optional: Make "PURfect" stand out with color */
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Character wrapper to position GIFs */
+.character-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1; /* Ensure GIFs are on top of the background */
+}
+
+/* Common character styling */
+.character {
+    width: 200px; /* Adjust the size as needed */
+    height: auto;
+}
+
+/* Dog styling (left side) */
+.dog {
+    transform: rotate(-10deg); /* Slight rotation for a "peeking" effect */
+}
+
+/* Cat styling (right side) */
+.cat {
+    transform: rotate(10deg); /* Slight rotation for a "peeking" effect */
+}

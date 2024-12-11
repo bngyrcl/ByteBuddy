@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to JavaScript</h1>
+        <h2>What is JavaScript?</h2>
+        <p>JavaScript is a high-level, interpreted programming language used primarily to create interactive effects within web browsers. It was developed by Netscape in 1995, and it is now one of the core technologies of web development, alongside HTML and CSS. JavaScript enables you to create dynamic, interactive websites and web applications.</p>
+        <p>JavaScript is an event-driven, functional, and imperative programming language. It is one of the most widely used languages for both client-side and server-side development, with applications ranging from web page interactivity to mobile apps, server-side APIs, and even desktop applications.</p>
+
+        <h2>Why Should You Learn JavaScript?</h2>
+        <ul>
+            <li><strong>Versatile Language:</strong> JavaScript can be used for front-end and back-end development. With frameworks like React and Angular for front-end development, and Node.js for back-end, JavaScript is truly versatile.</li>
+            <li><strong>High Demand in the Job Market:</strong> JavaScript is one of the most in-demand skills in the job market. It's the primary language for web development, and employers are always looking for proficient JavaScript developers.</li>
+            <li><strong>Rich Ecosystem:</strong> JavaScript has a vast ecosystem of libraries and frameworks that make development faster and more efficient. Libraries like jQuery, and frameworks like React, Angular, and Vue.js help you build robust applications quickly.</li>
+            <li><strong>Easy to Learn:</strong> JavaScript has a simple and readable syntax. With its support for both functional and object-oriented programming styles, it offers flexibility for developers of all experience levels.</li>
+        </ul>
+
+        <h2>Key Features of JavaScript</h2>
+        <ul>
+            <li><strong>Dynamic Typing:</strong> In JavaScript, you don't need to declare the data type of a variable. The language automatically determines the type at runtime.</li>
+            <li><strong>First-Class Functions:</strong> JavaScript treats functions as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.</li>
+            <li><strong>Event-Driven:</strong> JavaScript is event-driven, meaning actions such as mouse clicks, keyboard presses, or even network requests can trigger specific functions.</li>
+            <li><strong>Asynchronous Programming:</strong> JavaScript supports asynchronous programming through features like callbacks, promises, and async/await. This makes JavaScript ideal for handling tasks like reading files, fetching data, or handling user interactions.</li>
+            <li><strong>Cross-Platform:</strong> JavaScript is supported by all major browsers, meaning you can develop web applications that work across different platforms.</li>
+        </ul>
+
+        <h2>Basic Syntax</h2>
+        <h3>Variables</h3>
+        <p>In JavaScript, variables are used to store values. You can declare a variable using the <code>var</code>, <code>let</code>, or <code>const</code> keyword.</p>
+        <ul>
+            <li><code>var</code>: Used to declare variables, but its use is discouraged in modern JavaScript due to scope issues.</li>
+            <li><code>let</code>: Declares a block-scoped variable.</li>
+            <li><code>const</code>: Declares a block-scoped, read-only variable.</li>
+        </ul>
+        <p>Example:</p>
+        <div class="code">
+            let name = "John"; <br>
+            const age = 30; <br>
+            var isStudent = false;
+        </div>
+
+        <h3>Data Types</h3>
+        <p>JavaScript has several data types:</p>
+        <ul>
+            <li><strong>String:</strong> A sequence of characters. Example: <code>"Hello"</code></li>
+            <li><strong>Number:</strong> Numeric values. Example: <code>100</code></li>
+            <li><strong>Boolean:</strong> A true or false value. Example: <code>true</code></li>
+            <li><strong>Object:</strong> A collection of properties and values. Example: <code>{name: "John", age: 30}</code></li>
+            <li><strong>Array:</strong> A list of values. Example: <code>[1, 2, 3]</code></li>
+            <li><strong>Null:</strong> Represents an empty or non-existent value. Example: <code>null</code></li>
+            <li><strong>Undefined:</strong> A variable that has been declared but not assigned a value. Example: <code>let x;</code></li>
+        </ul>
+
+        <h3>Operators</h3>
+        <p>JavaScript supports several types of operators:</p>
+        <ul>
+            <li><strong>Arithmetic Operators:</strong> Used for mathematical calculations. Example: <code>+, -, *, /, %</code></li>
+            <li><strong>Comparison Operators:</strong> Used for comparison. Example: <code>==, ===, !=, >, <, >=, <=</code></li>
+            <li><strong>Logical Operators:</strong> Used for logical operations. Example: <code>&& (and), || (or), ! (not)</code></li>
+            <li><strong>Assignment Operators:</strong> Used to assign values. Example: <code>=, +=, -=, *=, /=</code></li>
+        </ul>
+
+        <h3>Control Flow</h3>
+        <p>Control flow statements allow you to control the flow of your program based on conditions. JavaScript supports:</p>
+        <ul>
+            <li><strong>If-Else Statement:</strong> Used to execute code based on a condition.</li>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

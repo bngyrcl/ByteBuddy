@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to MySql</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to MySQL</h1>
+        <h2>What is MySQL?</h2>
+        <p>MySQL is an open-source relational database management system (RDBMS) based on Structured Query Language (SQL). It is one of the most popular database systems used in web development and is commonly paired with PHP to create dynamic web applications. MySQL is known for its speed, reliability, and ease of use.</p>
+
+        <h2>Why Should You Learn MySQL?</h2>
+        <ul>
+            <li><strong>Widely Used in Web Development:</strong> MySQL is the database system behind many popular websites and web applications, including WordPress, Facebook, and YouTube.</li>
+            <li><strong>Open Source:</strong> MySQL is free to use and supported by a large community, making it accessible for developers worldwide.</li>
+            <li><strong>Flexible and Scalable:</strong> MySQL can handle everything from small websites to large-scale enterprise applications with millions of users.</li>
+            <li><strong>Easy Integration:</strong> MySQL integrates seamlessly with other technologies like PHP, Python, and Node.js, making it a common choice for full-stack web development.</li>
+        </ul>
+
+        <h2>Basic MySQL Concepts</h2>
+        <p>MySQL is used to store, retrieve, and manage data in a relational database. Data is stored in tables, and each table is made up of rows and columns. MySQL uses SQL to interact with databases and perform operations like querying, updating, and deleting data.</p>
+
+        <h3>Basic MySQL Commands</h3>
+        <p>Here are some common MySQL commands:</p>
+        <ul>
+            <li><strong>CREATE DATABASE:</strong> Creates a new database.</li>
+            <li><strong>USE:</strong> Selects a database to work with.</li>
+            <li><strong>CREATE TABLE:</strong> Creates a new table in the selected database.</li>
+            <li><strong>INSERT INTO:</strong> Adds new records to a table.</li>
+            <li><strong>SELECT:</strong> Retrieves data from a table.</li>
+            <li><strong>UPDATE:</strong> Modifies existing data in a table.</li>
+            <li><strong>DELETE:</strong> Deletes data from a table.</li>
+            <li><strong>DROP:</strong> Deletes a table or database.</li>
+        </ul>
+
+        <h2>Creating a Database and Table</h2>
+        <p>To begin working with MySQL, we first need to create a database and a table within it. Here’s how you can create a database and a table:</p>
+        <div class="code">
+            -- Create a new database<br>
+            CREATE DATABASE my_database;<br><br>
+
+            -- Select the database to use<br>
+            USE my_database;<br><br>
+
+            -- Create a new table<br>
+            CREATE TABLE users (<br>
+            &nbsp;&nbsp;id INT AUTO_INCREMENT PRIMARY KEY,<br>
+            &nbsp;&nbsp;name VARCHAR(100),<br>
+            &nbsp;&nbsp;email VARCHAR(100),<br>
+            &nbsp;&nbsp;created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
+            );<br>
+        </div>
+        <p>This code creates a new database called `my_database` and a table called `users`. The `users` table contains columns for `id`, `name`, `email`, and `created_at`.</p>
+
+        <h2>Inserting Data into a Table</h2>
+        <p>Once a table is created, you can insert data into it using the <code>INSERT INTO</code> command. Here’s an example:</p>
+        <div class="code">
+            -- Insert data into the users table<br>
+            INSERT INTO users (name, email)<br>
+            VALUES ('John Doe', 'john.doe@example.com');<br><br>
+
+            INSERT INTO users (name, email)<br>
+            VALUES ('Jane Smith', 'jane.smith@example.com');<br>
+        </div>
+        <p>This command inserts two rows into the `users` table. Each row contains a `name` and an `email` value.</p>
+
+        <h2>Querying Data</h2>
+        <p>The <code>SELECT</code> command is used to retrieve data from a table. Here’s an example of selecting all data from the `users` table:</p>
+        <div class="code">
+            -- Select all data from the users table<br>
+            SELECT * FROM users;<br>
+        </div>
+        <p>The <code>*</code> symbol means "select all columns." This query retrieves all records from the `users` table.</p>
+
+        <h2>Filtering Data with WHERE</h2>
+        <p>You can filter the results of a query using the <code>WHERE</code> clause. For example, to find a user by their name:</p>
+        <div class="code">
+            -- Select data where the name is 'John Doe'<br>
+            SELECT * FROM users<br>
+            WHERE name = 'John Doe';<br>
+        </div>
+        <p>The <code>WHERE</code> clause allows you to specify conditions to filter the results of your query.</p>
+
+        <h2>Updating Data</h2>
+        <p>If you need to modify existing data in the table, use the <code>UPDATE</code> command. Here's how you can update a user's email:</p>
+        <div class="code">
+            -- Update data in the users table<br>
+            UPDATE users<br>
+            SET email = 'new.email@example.com'<br>
+            WHERE name = 'John Doe';<br>
+        </div>
+        <p>This will change John Doe's email to `new.email@example.com`.</p>
+
+        <h2>Deleting Data</h2>
+        <p>To remove records from a table, use the <code>DELETE</code> command. For example, to delete the user with the name 'John Doe':</p>
+        <div class="code">
+            -- Delete data from the users table<br>
+            DELETE FROM users<br>
+            WHERE name = 'John Doe';<br>
+        </div>
+        <p>This will remove the record of 'John Doe' from the `users` table.</p>
+
+        <h2>Joining Tables</h2>
+        <p>MySQL allows you to join data from multiple tables using the <code>JOIN</code> clause. For example, if you have two tables (`users` and `orders`), you can join them based on a common column:</p>
+        <div class="code">
+            -- Select data from two tables using JOIN<br>
+            SELECT users.name, orders.amount<br>
+            FROM users<br>
+            INNER JOIN orders ON users.id = orders.user_id;<br>
+        </div>
+        <p>This query retrieves the name of the user and the amount from the `orders` table, where the `user_id` in the `orders` table matches the `id` in the `users` table.</p>
+
+        <h2>Conclusion</h2>
+        <p>MySQL is a powerful and easy-to-use relational database management system that helps developers manage data efficiently. By understanding the basic commands and operations in MySQL, you can create, read, update, and delete data in a structured way, enabling you to build dynamic web applications and data-driven websites.</p>
+    </div>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

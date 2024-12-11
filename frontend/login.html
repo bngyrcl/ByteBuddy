@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ByteBuddy</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to ByteBuddy</h2>
+        <form class="login-form" id="login-form"> <br>
+            <div class="form-group">
+                <label for="email">Username</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <div class="create-account">
+            <a href="#">Create New Account</a>
+        </div>
+
+        <div class="social-login-buttons">
+            <button class="social-login-button google">
+                <img src="images/google.png" alt="Google Logo" class="social-logo">
+                Google
+            </button>
+            <button class="social-login-button facebook">
+                <img src="images/facebook.png" alt="Facebook Logo" class="social-logo">
+                Facebook
+            </button>
+            <button class="social-login-button discord">
+                <img src="images/discord.png" alt="Discord Logo" class="social-logo">
+                Discord
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Dummy credentials for demonstration purposes
+        const validUsername = "rocelbongay@gmail.com";
+        const validPassword = "password123";
+
+        // Handle form submission
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Simple validation (for demo purposes)
+            if (email === validUsername && password === validPassword) {
+                // Redirect to dashboard on successful login
+                window.location.href = "selection.html"; // Change to your actual dashboard URL
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

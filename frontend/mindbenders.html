@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIND BENDERS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,rgba(0, 9, 15, 0.8), rgba(31, 124, 218, 0.8) );
+            backdrop-filter: blur(8px);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button img:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            width: 80%;
+            max-width: 700px;
+            background: linear-gradient(135deg, rgba(58, 123, 213, 0.9), rgba(5, 16, 37, 0.9));
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #f8f9fa;
+        }
+
+        pre {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            text-align: left;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            width: 80px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #357abd;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.location.href='quiz.html'">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/back.png" alt="Back Icon">
+    </button>
+
+    <div class="container">
+        <h1>Fill-in-the-Blanks Quiz</h1>
+        <p>Complete the code snippet by filling in the blanks.</p>
+        <pre>
+function <input type="text" id="q1" placeholder="...">(name) {
+    return `Hello, <input type="text" id="q2" placeholder="...">!`;
+}
+
+console.<input type="text" id="q3" placeholder="...">(<input type="text" id="q4" placeholder="...">("ByteBuddy"));
+        </pre>
+        <button onclick="checkAnswers()">Submit</button>
+        <p class="feedback" id="feedback"></p>
+    </div>
+
+    <script>
+        const answers = {
+            q1: "greet",
+            q2: "name",
+            q3: "log",
+            q4: "greet"
+        };
+
+        function checkAnswers() {
+            let score = 0;
+            for (const [key, value] of Object.entries(answers)) {
+                const userAnswer = document.getElementById(key).value.trim();
+                if (userAnswer === value) {
+                    score++;
+                    document.getElementById(key).style.borderColor = "lime";
+                } else {
+                    document.getElementById(key).style.borderColor = "red";
+                }
+            }
+
+            const feedback = document.getElementById("feedback");
+            if (score === Object.keys(answers).length) {
+                feedback.textContent = "Perfect! 🎉 You filled all blanks correctly!";
+                feedback.style.color = "lime";
+            } else {
+                feedback.textContent = `You got ${score}/${Object.keys(answers).length} correct. Try again!`;
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

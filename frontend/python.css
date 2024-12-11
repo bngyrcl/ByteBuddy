@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #1f4068, #278ea5); /* Gradient background */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background-color: #030546;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    top: 5%;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Main Container */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: calc(100vh - 100px); /* Adjusting height to account for header */
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* Learning Container */
+.learning-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+}
+
+/* Lesson Overview Styling - Full width */
+.lesson-overview {
+    width: 100%; /* Takes up full container width */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Enable vertical scroll if content is too long */
+}
+
+/* Lesson Overview Title */
+.lesson-overview h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#lesson-content {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile and Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <!-- Header with Gradient -->
+            <div class="header">
+                <!-- User Avatar and Change Photo -->
+                <div class="avatar-section">
+                    <img src="images/user.png" alt="User Avatar" class="profile-avatar">
+    
+                </div>
+
+                <!-- Log-Out Button -->
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+                <!-- Home Icon -->
+                <button class="home-btn">
+                   <a href="dashboard.html"> <i class="fas fa-home"></i></a>
+                </button>
+            </div>
+
+            <!-- Achievements, Mastery, and Badges -->
+            <div class="cards">
+                <!-- Achievements Card -->
+                <div class="card">
+                    <h4>Achievements</h4>
+                    <p>Top Scorer in Coding Challenges</p>
+                    <div class="rating">
+                        <span>80%</span>
+                        <div class="line-scale">
+                            <div class="progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mastery Card -->
+                <div class="card">
+                    <h4>Mastery</h4>
+                    <p>Python Programming</p>
+                    <div class="rating">
+                        <span>90%</span>
+                        <div class="line-scale">
+                            <div class="progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badges Card -->
+                <div class="card">
+                    <h4>Badges</h4>
+                    <p>Backend Developer Badge</p>
+                    <div class="rating">
+                        <span>70%</span>
+                        <div class="line-scale">
+                            <div class="progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Information -->
+            <div class="content">
+                <h3>Personal Information</h3>
+                <div class="info-group" data-type="username">
+                    <label>User Name</label>
+                    <p>ellie</p>
+                    <button class="edit-btn">Edit</button>
+                </div>
+                <div class="info-group" data-type="phone">
+                    <label>Phone</label>
+                    <p>+••••••••••1488</p>
+                    <button class="edit-btn">Edit</button>
+                </div>
+                <div class="info-group" data-type="email">
+                    <label>Email</label>
+                    <p>rocelbongay@gmail.com</p>
+                    <button class="edit-btn">Edit</button>
+                </div>
+                <div class="info-group" data-type="job-title">
+                    <label>Job Title</label>
+                    <p>Student</p>
+                    <button class="edit-btn">Edit</button>
+                </div>
+                <div class="info-group" data-type="password">
+                    <label>Password</label>
+                    <p>••••••••••</p>
+                    <button class="edit-btn">Change</button>
+                </div>
+            </div>
+                
+            <!-- Confirmation Modal -->
+            <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <h3 id="confirmationTitle">Confirmation</h3>
+                    <p id="confirmationMessage">Are you sure you want to log out?</p>
+                    <div class="modal-actions">
+                        <button id="confirmYes" class="btn save-btn">Yes</button>
+                        <button id="confirmNo" class="btn cancel-btn">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Confirmation Modal Elements
+        const confirmationModal = document.getElementById('confirmationModal');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // When log-out button is clicked
+        logoutBtn.addEventListener('click', () => {
+            // Show the confirmation modal
+            confirmationMessage.textContent = 'Are you sure you want to log out?';
+            confirmationModal.style.display = 'flex';
+        });
+
+        // Confirm "Yes" to log out
+        confirmYes.addEventListener('click', () => {
+            // Redirect to login page
+            window.location.href = 'login.html';  // Replace with your actual login page URL
+        });
+
+        // Cancel log-out
+        confirmNo.addEventListener('click', () => {
+            // Close confirmation modal
+            confirmationModal.style.display = 'none';
+        });
+
+        // Close Modal on Outside Click
+        window.addEventListener('click', (event) => {
+            if (event.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

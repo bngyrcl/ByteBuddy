@@ -1,0 +1,317 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+/* Container */
+.container {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
+.profile-section {
+    padding: 20px;
+    position: relative;
+}
+/* Header with Gradient */
+.header {
+    position: relative;
+    height: 150px;
+    background: linear-gradient(to right, #2510e6, #010124);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    overflow: visible; /* Allows avatar to overflow the header */
+}
+
+/* Avatar Section */
+.avatar-section {
+    position: absolute;
+    text-align: center;
+    z-index: 9999; /* Bring the avatar above other elements */
+}
+
+/* Profile Avatar */
+.profile-avatar {
+    width: 200px; /* Larger avatar size */
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid white;
+    display: block;
+    /* Ensure it stays above the cards */
+}
+
+
+
+
+
+/* Adjustments for log-out button */
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    background: #2e77e5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logout-btn:hover {
+    background: #022e80;
+}
+
+/* Content */
+.content h3 {
+    font-size: 18px;
+    color: #555;
+}
+
+.info-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.info-group label {
+    font-size: 14px;
+    color: #777;
+    flex: 1;
+}
+
+.info-group p {
+    flex: 2;
+    font-size: 16px;
+}
+
+.edit-btn {
+    background: #1f4764;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-btn:hover {
+    background: #005fa3;
+}
+
+/* Cards Section */
+.cards {
+    display: flex;
+    gap: 20px;
+    margin: 80px 0 20px 0; /* Increased to accommodate larger avatar */
+    justify-content: center;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Line Scale */
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.line-scale {
+    flex-grow: 1;
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 10px;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, #ff0000, #008f13);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 400px;
+}
+
+#modalInput {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveBtn {
+    background-color: #1f4764;
+    color: white;
+}
+
+#saveBtn:hover {
+    background-color: #005fa3;
+}
+
+#cancelBtn {
+    background-color: #ccc;
+}
+
+#cancelBtn:hover {
+    background-color: #999;
+}
+
+/* Modal Base Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.modal p {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.save-btn {
+    background-color: #1f4764;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+/* Home Button Styles */
+.home-btn {
+    position: absolute;
+    top: 60px; /* Adjusted position below the logout button */
+    right: 50px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    gap: 20px;
+}
+
+.home-btn i {
+    font-size: 18px; /* Adjusted icon size */
+}
+
+.home-btn:hover {
+    background: #005fa3;
+}

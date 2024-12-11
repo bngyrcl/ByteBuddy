@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteBuddy IDE</title>
+    <link rel="stylesheet" href="IDE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+</head>
+<body>
+    <header class="ide-header">
+        <div class="logo">ByteBuddy</div>
+        <nav class="header-nav">
+            <button onclick="goHome()">Home</button>
+            <button onclick="viewAssistanceBuddy()">Need Help</button>
+        </nav>
+    </header>
+    
+
+    <main class="ide-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="languages-explorer">
+                <h3>Create a New Project</h3>
+                <ul id="language-list">
+                    <li onclick="selectLanguage('Python')">Python</li>
+                    <li onclick="selectLanguage('JavaScript')">JavaScript</li>
+                    <li onclick="selectLanguage('Java')">Java</li>
+                    <li onclick="selectLanguage('C')">C</li>
+                    <li onclick="selectLanguage('C++')">C++</li>
+                    <li onclick="selectLanguage('HTML')">HTML</li>
+                    <li onclick="selectLanguage('PHP')">PHP</li>
+                    <li onclick="selectLanguage('MySQL')">MySQL</li>
+                </ul>
+                
+            </div>
+            <div class="tool-buttons">
+                <button id="saveButton" class="dashboard-btn">Save</button>
+                <button id="runButton" class="dashboard-btn">Run</button>
+                <button id="downloadButton" class="dashboard-btn">Download</button>
+              </div>
+              <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span id="closeBtn" class="close">&times;</span>
+                    <p id="modalMessage"></p>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Editor and Output -->
+        <div class="editor-output-container">
+            <!-- Code Editor -->
+            <section class="editor">
+                <pre id="codeEditor" class="language-javascript"><code class="language-javascript">Select a language to start coding...</code></pre>
+            </section>
+            
+            <!-- Add Output Console -->
+            <div class="output" id="outputConsole">Output will be displayed here...</div>
+
+        </div>
+
+    </main>
+
+    <footer class="status-bar">
+        <span>Status: Ready</span>
+        <span id="current-language">Language: None</span>
+    </footer>
+
+    <script src="ide-script.js"></script>
+</body>
+</html>

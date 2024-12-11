@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to C</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to C Programming</h1>
+        <h2>What is C?</h2>
+        <p>The C programming language is a general-purpose, procedural programming language that was designed in 1972 by Dennis Ritchie at AT&T Bell Labs. C has influenced many other programming languages, including C++, C#, and Java, and it is widely used for system programming, embedded systems, and high-performance applications.</p>
+        <p>One of the main strengths of C is its efficiency, allowing developers to write code that runs very quickly. It also provides low-level access to memory and system resources, which makes it suitable for tasks that require high performance and fine-grained control over system hardware.</p>
+
+        <h2>Why Should You Learn C?</h2>
+        <ul>
+            <li><strong>Foundation for Other Languages:</strong> C is the foundation for many other languages, such as C++, C#, and Java. Learning C will give you a deeper understanding of how modern programming languages work.</li>
+            <li><strong>Efficiency and Speed:</strong> C is known for its efficiency and fast execution, which is essential for applications requiring high performance.</li>
+            <li><strong>Low-level Access:</strong> C provides low-level access to memory through pointers, which allows you to work with hardware and system resources directly.</li>
+            <li><strong>Portability:</strong> C programs can be compiled and run on various platforms, making them highly portable.</li>
+        </ul>
+
+        <h2>Key Features of C</h2>
+        <ul>
+            <li><strong>Simple and Efficient:</strong> C offers a relatively simple syntax, making it easier to write and maintain efficient programs.</li>
+            <li><strong>Portability:</strong> C programs can run on any machine with minimal changes, thanks to the standard C library and its simple execution model.</li>
+            <li><strong>Low-level Programming:</strong> C allows you to manipulate memory and work directly with hardware, which makes it ideal for system programming.</li>
+            <li><strong>Extensive Libraries:</strong> C provides a rich set of built-in functions for performing common tasks, such as input/output, string manipulation, and memory management.</li>
+        </ul>
+
+        <h2>Basic Syntax</h2>
+        <h3>Variables</h3>
+        <p>In C, variables are used to store data values. You must declare a variable before using it. C supports several basic data types like integers, floating-point numbers, characters, and more.</p>
+        <p>Example of declaring variables:</p>
+        <div class="code">
+            int age = 30; <br>
+            float weight = 72.5; <br>
+            char grade = 'A';
+        </div>
+
+        <h3>Data Types</h3>
+        <p>C has several built-in data types, including:</p>
+        <ul>
+            <li><strong>int:</strong> Used for integers (whole numbers).</li>
+            <li><strong>float:</strong> Used for floating-point numbers (numbers with decimals).</li>
+            <li><strong>double:</strong> Used for double precision floating-point numbers.</li>
+            <li><strong>char:</strong> Used for storing individual characters.</li>
+            <li><strong>void:</strong> Represents the absence of value or a function with no return value.</li>
+        </ul>
+
+        <h3>Operators</h3>
+        <p>C supports a wide range of operators:</p>
+        <ul>
+            <li><strong>Arithmetic Operators:</strong> Used for basic math operations. Example: <code>+, -, *, /, %</code></li>
+            <li><strong>Comparison Operators:</strong> Used for comparing values. Example: <code>==, !=, >, <, >=, <=</code></li>
+            <li><strong>Logical Operators:</strong> Used for logical operations. Example: <code>&& (AND), || (OR), ! (NOT)</code></li>
+            <li><strong>Assignment Operators:</strong> Used to assign values to variables. Example: <code>=, +=, -=</code></li>
+        </ul>
+
+        <h3>Control Flow</h3>
+        <p>Control flow statements determine the execution order of the code. In C, common control flow statements include:</p>
+        <ul>
+            <li><strong>If-Else:</strong> Executes code based on a condition.</li>
+            <div class="code">
+                if (age >= 18) { <br>
+                &nbsp;&nbsp;&nbsp;printf("You are an adult.\n"); <br>
+                } else { <br>
+                &nbsp;&nbsp;&nbsp;printf("You are a minor.\n"); <br>
+                }
+            </div>
+            <li><strong>Switch:</strong> A selection statement that allows for multiple possible outcomes based on the value of an expression.</li>
+            <div class="code">
+                switch (day) { <br>
+                &nbsp;&nbsp;&nbsp;case 1: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Monday\n"); <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+                &nbsp;&nbsp;&nbsp;default: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Invalid day\n"); <br>
+                }
+            </div>
+        </ul>
+
+        <h2>Functions</h2>
+        <p>A function in C is a block of code that performs a specific task. Functions allow you to organize and reuse code. C provides a built-in <code>main()</code> function, which serves as the entry point for the program.</p>
+        <p>Here’s an example of how to define and call a function in C:</p>
+        <div class="code">
+            #include &lt;stdio.h&gt; <br><br>
+            void greet(char name[]) { <br>
+            &nbsp;&nbsp;&nbsp;printf("Hello, %s!\n", name); <br>
+            } <br><br>
+            int main() { <br>
+            &nbsp;&nbsp;&nbsp;greet("John"); <br>
+            &nbsp;&nbsp;&nbsp;return 0; <br>
+            }
+        </div>
+        <p>In this example, the function <code>greet()</code> takes a string as an argument and prints a greeting message. The <code>main()</code> function calls <code>greet()</code>.</p>
+
+        <h2>Conclusion</h2>
+        <p>C is one of the oldest and most widely used programming languages. It is known for its efficiency, low-level access to memory, and portability across platforms. C is essential for system programming, developing operating systems, embedded systems, and high-performance applications. By learning C, you’ll gain a deep understanding of how computers work and build a solid foundation for learning other programming languages.</p>
+        <p>To continue your C programming journey, try writing small programs, experiment with more advanced topics like memory management and pointers, and explore C libraries and frameworks to broaden your skills.</p>
+    </div>
+</body>
+</html>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

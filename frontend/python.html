@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to Python</h1>
+        <h2>What is Python?</h2>
+        <p>Python is a high-level, interpreted programming language created by Guido van Rossum and first released in 1991. It was designed to be easy to understand and fun to use, making it an excellent choice for both beginner and advanced programmers. Python's syntax is straightforward, and it emphasizes readability, which makes it a great language to start learning programming.</p>
+        <p>Over the years, Python has become one of the most widely used programming languages in the world. Its versatility allows it to be used in many areas, such as web development, data analysis, artificial intelligence, machine learning, automation, and more. Python is open-source, meaning it’s free to use and has an active community of developers who contribute to its continuous improvement.</p>
+
+        <h2>Why Should You Learn Python?</h2>
+        <ul>
+            <li><strong>Simple and Readable Syntax:</strong> Python is often praised for its clean and easy-to-understand syntax...</li>
+            <li><strong>Versatility:</strong> Python is a versatile language that can be used in a wide range of applications, including web development, data science, machine learning, and more...</li>
+            <li><strong>Large and Active Community:</strong> Python has one of the largest and most active programming communities in the world...</li>
+            <li><strong>High Demand in the Job Market:</strong> The demand for Python developers continues to grow, making it a great skill to add to your resume...</li>
+        </ul>
+
+        <h2>Key Features of Python</h2>
+        <ul>
+            <li><strong>Easy to Learn and Use:</strong> Python is beginner-friendly and emphasizes code readability...</li>
+            <li><strong>Interpreted Language:</strong> Python is an interpreted language, allowing for faster development and easier testing...</li>
+            <li><strong>Object-Oriented Programming (OOP) Support:</strong> Python supports OOP, which helps organize code...</li>
+            <li><strong>Extensive Standard Library:</strong> Python comes with a vast standard library for tasks like file handling, data manipulation, etc...</li>
+            <li><strong>Dynamically Typed:</strong> Python is dynamically typed, making it flexible and convenient...</li>
+            <li><strong>Cross-Platform:</strong> Python is platform-independent, meaning it works across different operating systems...</li>
+        </ul>
+
+        <h2>Python's Common Uses</h2>
+        <ul>
+            <li><strong>Web Development:</strong> Python is widely used for building web applications with frameworks like Django and Flask...</li>
+            <li><strong>Data Science and Machine Learning:</strong> Python is the language of choice for data science and AI...</li>
+            <li><strong>Automation and Scripting:</strong> Python simplifies many manual processes through automation and scripting...</li>
+            <li><strong>Game Development:</strong> Python is used in game development, especially with the Pygame library...</li>
+            <li><strong>Artificial Intelligence:</strong> Python is a leading language for AI and machine learning projects...</li>
+            <li><strong>Scientific Computing:</strong> Python is widely used in scientific research, simulations, and data analysis...</li>
+        </ul>
+
+        <h2>Getting Started with Python</h2>
+        <h3>Step 1: Install Python</h3>
+        <p>To begin using Python, you first need to install it on your system:</p>
+        <ol>
+            <li>Go to the official Python website.</li>
+            <li>Download the latest stable version (usually the Python 3.x series).</li>
+            <li>Follow the installation instructions for your operating system.</li>
+        </ol>
+
+        <h3>Step 2: Set Up Your Development Environment</h3>
+        <p>Popular IDEs for Python include:</p>
+        <ul>
+            <li>PyCharm: A professional-grade IDE for Python development.</li>
+            <li>VS Code: A lightweight, powerful text editor with support for Python through extensions.</li>
+            <li>Jupyter Notebook: Ideal for data science and machine learning tasks.</li>
+        </ul>
+
+        <h3>Step 3: Write Your First Python Program</h3>
+        <p>After setting up Python, it’s time to write your first program. Create a new Python file and type the following code:</p>
+        <div class="code">print("Hello, World!")</div>
+
+        <h3>Step 4: Learn the Basics</h3>
+        <p>Once you're familiar with the setup, you can start learning Python's basic concepts like:</p>
+        <ul>
+            <li>Variables</li>
+            <li>Data Types</li>
+            <li>Operators</li>
+            <li>Control Flow</li>
+            <li>Functions</li>
+            <li>Modules</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Python is a powerful, versatile language that can be used for a wide range of applications. Whether you want to build web applications, analyze data, or explore artificial intelligence, Python is a great choice. Its simple syntax, large community, and broad range of libraries make it one of the most popular languages in the world.</p>
+        <p>By starting with Python, you’ll gain valuable skills that can be applied to many fields and industries. The best way to learn Python is by doing—start coding, experiment with projects, and gradually tackle more complex topics. Happy coding!</p>
+    </div>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

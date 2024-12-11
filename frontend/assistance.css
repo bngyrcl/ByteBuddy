@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Make sure both the html and body take up the full height */
+    width: 100%;  /* Make sure both the html and body take up the full width */
+}
+
+/* Body Style */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+}
+
+/* Container and Chat Box */
+.chat-container {
+    width: 100%;
+    height: 100%;
+    position: relative; /* Set position relative for the pseudo-element */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Blurred Background using Pseudo-Element */
+.chat-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/bg.png') no-repeat center center;
+    background-size: cover; /* Ensure the background image covers the container fully */
+    background-position: center center; /* Position the background image at the center */
+    filter: blur(8px); /* Apply blur effect to the background */
+    z-index: -1; /* Ensure the background stays behind the chat box */
+}
+
+/* Back Button */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px; /* Adjusted for a larger icon */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.back-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Chat Box */
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    position: relative; /* Ensures the chat box stays on top of the blurred background */
+    z-index: 1; /* Set chat box above the blurred background */
+}
+
+/* Message Bubbles */
+.message-bubble {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px; /* Increase margin between messages */
+    max-width: 90%;
+}
+
+.user-message {
+    justify-content: flex-end; /* User's message aligned to the right */
+}
+
+.buddy-message {
+    justify-content: flex-start; /* Buddy's message aligned to the left */
+}
+
+.message-bubble .avatar {
+    width: 50px; /* Increase avatar size */
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px; /* Adjusted to align the avatar */
+}
+
+.message-bubble .message-text {
+    padding: 20px; /* Increase padding for larger bubbles */
+    font-size: 18px; /* Increase font size */
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 70%; /* Make sure the bubble does not stretch too wide */
+}
+
+/* Buddy Message Style */
+.buddy-message .message-text {
+    background-color: #87CEEB; /* Skyblue */
+}
+
+/* User Message Style */
+.user-message .message-text {
+    background-color: #fff; /* White background for user messages */
+}
+
+/* Input Container */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    z-index: 1; /* Set input container above the blurred background */
+}
+
+.message-input {
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    width: 90%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.send-btn {
+    background-color: #1f4764;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.send-btn:hover {
+    background-color: #005fa3;
+}

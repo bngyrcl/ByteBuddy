@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Coding Companion</title>
+    <link rel="stylesheet" href="selection.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Choose Your Coding Companion</h1>
+            <p>Pick a companion to guide you through your coding journey!</p>
+        </header>
+
+        <section class="companion-selection">
+            <div class="companion-option" id="cat-option">
+                <img src="images/cat_waving.gif" alt="Cat Companion" class="companion-img">
+                <p>Cat</p>
+            </div>
+            <div class="companion-option" id="dog-option">
+                <img src="images/dog_waving.gif" alt="Dog Companion" class="companion-img">
+                <p>Dog</p>
+            </div>
+        </section>
+
+        <button class="confirm-btn" onclick="confirmSelection()">Confirm Selection</button>
+    </div>
+
+    <script>
+        let selectedCompanion = '';
+
+        // Handle companion selection
+        document.getElementById('cat-option').onclick = function() {
+            selectedCompanion = 'cat';
+            highlightSelection('cat');
+        };
+
+        document.getElementById('dog-option').onclick = function() {
+            selectedCompanion = 'dog';
+            highlightSelection('dog');
+        };
+
+        // Highlight the selected companion
+        function highlightSelection(companion) {
+            document.getElementById('cat-option').classList.remove('selected');
+            document.getElementById('dog-option').classList.remove('selected');
+            if (companion === 'cat') {
+                document.getElementById('cat-option').classList.add('selected');
+            } else {
+                document.getElementById('dog-option').classList.add('selected');
+            }
+        }
+
+        // Confirm selection and proceed to dashboard
+        function confirmSelection() {
+            if (selectedCompanion) {
+                // Redirect to dashboard with selected companion
+                window.location.href = `dashboard.html?companion=${selectedCompanion}`;
+            } else {
+                alert('Please select a companion!');
+            }
+        }
+    </script>
+</body>
+</html>

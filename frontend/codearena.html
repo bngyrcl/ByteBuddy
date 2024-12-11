@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE ARENA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: linear-gradient(135deg, #01030e, #010003, #000205);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Header */
+        h1 {
+            color: #f8f9fa;
+            font-size: 2.5rem;
+        }
+
+        /* Scenario Box */
+        .scenario {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            text-align: left;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        /* Text Area */
+        textarea {
+            width: 100%;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #004e92;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            resize: none;
+        }
+
+        textarea:focus {
+            border-color: #1a73e8;
+            outline: none;
+        }
+
+        /* Submit Button */
+        button {
+            background-color: #004e92;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1a73e8;
+            transform: scale(1.05);
+        }
+
+        /* Feedback */
+        .feedback {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.location.href='quiz.html'">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/back.png" alt="Back Icon">
+    </button>
+
+    <!-- Quiz Container -->
+    <div class="container">
+        <h1>Code Creation Quiz</h1>
+        <p>Write your own code based on the scenario below:</p>
+        <div class="scenario">
+            <strong>Scenario:</strong><br>
+            Create a JavaScript function named <code>calculateArea</code> that takes the radius of a circle as input and returns its area. Use the formula <code>Area = π * radius<sup>2</sup></code>. Make sure to use <code>Math.PI</code> for the value of π.
+        </div>
+
+        <!-- Text Area for Code -->
+        <textarea id="userCode" placeholder="Write your code here..."></textarea>
+        <button onclick="evaluateCode()">Submit</button>
+
+        <!-- Feedback -->
+        <p class="feedback" id="feedback"></p>
+    </div>
+
+    <script>
+        function evaluateCode() {
+            const userCode = document.getElementById("userCode").value.trim();
+            const feedback = document.getElementById("feedback");
+
+            // Check if the user has written something
+            if (!userCode) {
+                feedback.textContent = "Please write some code before submitting!";
+                feedback.style.color = "red";
+                return;
+            }
+
+            // Validate the user's code with a simple check
+            if (userCode.includes("function calculateArea") && userCode.includes("Math.PI")) {
+                feedback.textContent = "Great job! 🎉 Your code includes the correct function and uses Math.PI.";
+                feedback.style.color = "lime";
+            } else {
+                feedback.textContent = "Hmm, it looks like your code might be missing some key components. Check the scenario again!";
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

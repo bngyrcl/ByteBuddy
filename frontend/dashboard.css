@@ -1,0 +1,268 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full-Screen Dashboard */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #1b1b2f, #1f4068, #278ea5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Dashboard Section */
+.dashboard {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Announcement Section */
+.announcement {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.announcement h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.announcement p {
+    font-size: 18px;
+}
+
+/* Language Selection Sliding Cards */
+.language-selection {
+    width: 100%;
+    height: 100%; /* Allow cards to fill the container */
+    display: flex;
+    flex-direction: column; /* Stack heading and cards */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 10px;
+    scroll-behavior: smooth; /* Smooth scrolling for overflow */
+}
+
+.language-selection h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -20px; /* Move heading slightly upwards */
+    font-size: 28px;
+}
+
+.card {
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    width: 200px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000000b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 30px;
+    transition: transform 0.3s;
+}
+
+
+.card-container {
+    display: flex;
+    gap: 25px; /* Space between cards */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    width: 100%; /* Use full width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #278ea5 transparent; /* Custom scrollbar for Firefox */
+    padding: 10px 0; /* Add some padding above and below */
+    justify-content: flex-start; /* Align cards to the left */
+}
+
+.card-container::-webkit-scrollbar {
+    height: 8px; /* Make scrollbar smaller */
+}
+
+.card-container::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background-color: #278ea5; /* Scrollbar color */
+    border-radius: 4px;
+}
+
+/* Assign specific background images for each card */
+#python-card {
+    background-image: url('images/py-bg.jpeg');
+}
+
+#javascript-card {
+    background-image: url('images/js-bg.jpeg');
+}
+
+#java-card {
+    background-image: url('images/jv-bg.png');
+}
+
+#c-card {
+    background-image: url('images/c-bg.jpeg');
+}
+
+#cpp-card {
+    background-image: url('images/c++bg.jpeg');
+}
+
+#html-card {
+    background-image: url('images/html-bg.jpeg');
+}
+
+#php-card {
+    background-image: url('images/php-bg.jpeg');
+}
+
+#mysql-card {
+    background-image: url('images/mysql-bg.jpeg');
+}
+
+.card h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 18px;
+    margin: 0;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05); /* Slight hover effect */
+    background-color: #278ea5;
+    color: white;
+}
+
+.card:active {
+    transform: scale(1);
+}
+
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+    height: 8px; /* Make scrollbar smaller */
+}
+
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}

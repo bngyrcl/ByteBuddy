@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to C++</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to C++ Programming</h1>
+        <h2>What is C++?</h2>
+        <p>C++ is a general-purpose programming language created by Bjarne Stroustrup at Bell Labs in 1979 as an extension of the C programming language. It is one of the most widely used languages in software development due to its efficiency, performance, and ability to support both low-level and high-level programming. C++ is known for its object-oriented capabilities, which makes it suitable for large-scale software development.</p>
+        
+        <h2>Why Should You Learn C++?</h2>
+        <ul>
+            <li><strong>Object-Oriented Programming (OOP):</strong> C++ supports OOP, allowing you to create modular programs and reusable code.</li>
+            <li><strong>Performance:</strong> C++ allows you to write high-performance applications due to its low-level features and manual memory management.</li>
+            <li><strong>Wide Usage:</strong> C++ is used in game development, system software, real-time applications, and even high-frequency trading systems.</li>
+            <li><strong>Control Over System Resources:</strong> C++ allows you to directly interact with system resources, making it ideal for system-level programming.</li>
+        </ul>
+
+        <h2>Key Features of C++</h2>
+        <ul>
+            <li><strong>Object-Oriented:</strong> C++ supports key OOP principles like inheritance, polymorphism, encapsulation, and abstraction.</li>
+            <li><strong>Low-level and High-level Features:</strong> C++ combines low-level system programming features with high-level abstraction, making it versatile.</li>
+            <li><strong>STL (Standard Template Library):</strong> C++ includes a powerful set of template-based classes and functions for data structures, algorithms, and iterators.</li>
+            <li><strong>Memory Management:</strong> C++ gives you direct control over memory allocation and deallocation using pointers, making it a good choice for performance-critical applications.</li>
+        </ul>
+
+        <h2>Basic Syntax</h2>
+        <h3>Variables</h3>
+        <p>In C++, variables are used to store data. C++ supports various data types such as integers, floating-point numbers, characters, and more.</p>
+        <p>Example of declaring variables:</p>
+        <div class="code">
+            int age = 25; <br>
+            float height = 5.9; <br>
+            char grade = 'A';
+        </div>
+
+        <h3>Data Types</h3>
+        <p>C++ provides a wide range of data types:</p>
+        <ul>
+            <li><strong>int:</strong> Used to store integer values.</li>
+            <li><strong>float:</strong> Used to store floating-point values (numbers with decimals).</li>
+            <li><strong>double:</strong> Used for double-precision floating-point values.</li>
+            <li><strong>char:</strong> Used to store individual characters.</li>
+            <li><strong>bool:</strong> Used to store boolean values (<code>true</code> or <code>false</code>).</li>
+        </ul>
+
+        <h3>Operators</h3>
+        <p>C++ supports various operators to perform operations on variables:</p>
+        <ul>
+            <li><strong>Arithmetic Operators:</strong> For basic operations: <code>+, -, *, /, %</code></li>
+            <li><strong>Comparison Operators:</strong> For comparing values: <code>==, !=, >, <, >=, <=</code></li>
+            <li><strong>Logical Operators:</strong> For logical comparisons: <code>&& (AND), || (OR), ! (NOT)</code></li>
+            <li><strong>Assignment Operators:</strong> For assigning values to variables: <code>=, +=, -=</code></li>
+        </ul>
+
+        <h3>Control Flow</h3>
+        <p>C++ includes several control flow statements that determine the execution order of code:</p>
+        <ul>
+            <li><strong>If-Else:</strong> Executes code based on a condition.</li>
+            <div class="code">
+                if (age >= 18) { <br>
+                &nbsp;&nbsp;&nbsp;cout &lt;&lt; "You are an adult." &lt;&lt; endl; <br>
+                } else { <br>
+                &nbsp;&nbsp;&nbsp;cout &lt;&lt; "You are a minor." &lt;&lt; endl; <br>
+                }
+            </div>
+            <li><strong>Switch:</strong> Provides multiple outcomes based on the value of an expression.</li>
+            <div class="code">
+                switch (day) { <br>
+                &nbsp;&nbsp;&nbsp;case 1: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Monday" &lt;&lt; endl; <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+                &nbsp;&nbsp;&nbsp;default: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; "Invalid day" &lt;&lt; endl; <br>
+                }
+            </div>
+        </ul>
+
+        <h2>Functions</h2>
+        <p>A function in C++ is a block of code that performs a specific task. Functions can be defined by the programmer and then called in the program.</p>
+        <p>Here’s an example of a simple function:</p>
+        <div class="code">
+            #include &lt;iostream&gt; <br><br>
+            void greet(std::string name) { <br>
+            &nbsp;&nbsp;&nbsp;std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl; <br>
+            } <br><br>
+            int main() { <br>
+            &nbsp;&nbsp;&nbsp;greet("John"); <br>
+            &nbsp;&nbsp;&nbsp;return 0; <br>
+            }
+        </div>
+        <p>This example defines a function <code>greet()</code> that takes a name as a parameter and prints a greeting message. The <code>main()</code> function calls the <code>greet()</code> function.</p>
+
+        <h2>Classes and Objects</h2>
+        <p>One of the key features of C++ is object-oriented programming (OOP). C++ allows you to define <strong>classes</strong> that represent real-world entities and their behaviors. A class can have <strong>attributes</strong> (variables) and <strong>methods</strong> (functions).</p>
+        <p>Here’s an example of defining a simple class:</p>
+        <div class="code">
+            class Person { <br>
+            public: <br>
+            &nbsp;&nbsp;&nbsp;std::string name; <br>
+            &nbsp;&nbsp;&nbsp;int age; <br><br>
+            &nbsp;&nbsp;&nbsp;void introduce() { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; "Hello, my name is " &lt;&lt; name &lt;&lt; " and I am " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; std::endl; <br>
+            } <br>
+            }; <br><br>
+
+            int main() { <br>
+            &nbsp;&nbsp;&nbsp;Person person; <br>
+            &nbsp;&nbsp;&nbsp;person.name = "Alice"; <br>
+            &nbsp;&nbsp;&nbsp;person.age = 30; <br>
+            &nbsp;&nbsp;&nbsp;person.introduce(); <br>
+            &nbsp;&nbsp;&nbsp;return 0; <br>
+            }
+        </div>
+        <p>In this example, the <code>Person</code> class has two attributes (<code>name</code> and <code>age</code>) and a method (<code>introduce()</code>) to display the information.</p>
+
+        <h2>Conclusion</h2>
+        <p>C++ is a powerful, high-performance programming language that provides both low-level and high-level features. Its support for object-oriented programming, combined with its ability to interact with system resources, makes it an ideal choice for complex software applications. By mastering C++, you'll be able to write efficient, reusable code and work on a wide range of applications, from system software to game development.</p>
+        <p>Continue learning C++ by experimenting with more advanced topics like inheritance, polymorphism, and templates, and by building projects that reinforce your understanding of OOP and system-level programming.</p>
+    </div>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

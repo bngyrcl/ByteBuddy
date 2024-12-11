@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        
+/* Footer with Action Buttons */
+.dashboard-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* Maximize the width to 100% */
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0; /* Adjust padding to fit buttons */
+    z-index: 10;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Footer Buttons */
+.dashboard-footer button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Footer Icons */
+.dashboard-footer button img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Pop Effect on Click */
+.dashboard-footer button:active img {
+    border-radius: 50%;
+    transform: scale(1.4); /* Slightly enlarge the icon on click */
+}
+
+.dashboard-footer button:active::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(39, 174, 96, 0.2); /* Light green circle */
+    border-radius: 50%;
+    animation: pop-effect 0.3s ease forwards;
+    z-index: -1; /* Place behind the button content */
+}
+
+.dashboard-footer button:hover {
+    transform: scale(1.4); /* Pop-up effect when hovered */
+    color: #27ae60; /* Highlight the text */
+}
+
+.dashboard-footer button.active {
+    color: #27ae60; /* Green text for active button */
+}
+
+/* Keyframes for Pop Effect */
+@keyframes pop-effect {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .language-selection {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .card-container::-webkit-scrollbar {
+        height: 8px; /* Make scrollbar smaller */
+    }
+
+    .card {
+        min-width: 130px;
+        max-width: 160px;
+        padding: 30px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .dashboard-footer button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Introduction to HTML</h1>
+        <h2>What is HTML?</h2>
+        <p>HTML (HyperText Markup Language) is the standard language used to create web pages. It is the backbone of web development, providing the structure and content of a webpage. HTML is used to describe the elements of a webpage, such as headings, paragraphs, images, links, forms, and more. It works alongside CSS (Cascading Style Sheets) and JavaScript to create interactive and well-designed websites.</p>
+
+        <h2>Why Should You Learn HTML?</h2>
+        <ul>
+            <li><strong>Building Block of Web Development:</strong> HTML is the foundational language of the web, and understanding it is crucial for becoming a web developer.</li>
+            <li><strong>Easy to Learn:</strong> HTML is simple and beginner-friendly. Even if you are new to programming, HTML provides a good starting point.</li>
+            <li><strong>Widely Used:</strong> Every website on the internet is built using HTML, so it’s an essential skill for any developer or designer.</li>
+            <li><strong>Compatibility:</strong> HTML works across all browsers, making it a universal language for web development.</li>
+        </ul>
+
+        <h2>Basic HTML Structure</h2>
+        <p>An HTML document consists of several key elements that work together to structure the content of a webpage. Here is a basic HTML document structure:</p>
+        <div class="code">
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>
+            &nbsp;&nbsp;&lt;head&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My First Webpage&lt;/title&gt;<br>
+            &nbsp;&nbsp;&lt;/head&gt;<br>
+            &nbsp;&nbsp;&lt;body&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Welcome to My Webpage&lt;/h1&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is a paragraph of text on my first webpage.&lt;/p&gt;<br>
+            &nbsp;&nbsp;&lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+        <p>Explanation of the above structure:</p>
+        <ul>
+            <li><strong>&lt;!DOCTYPE html&gt;:</strong> This declaration tells the browser that the document is an HTML5 document.</li>
+            <li><strong>&lt;html&gt;:</strong> This is the root element of an HTML document. All other elements are contained inside it.</li>
+            <li><strong>&lt;head&gt;:</strong> This section contains metadata, such as the document's title, character encoding, and links to external resources like CSS files.</li>
+            <li><strong>&lt;body&gt;:</strong> The body of the document, where all visible content like text, images, and links is placed.</li>
+            <li><strong>&lt;h1&gt;:</strong> This is a heading element. There are different heading tags (h1 to h6) that define the importance and size of the heading.</li>
+            <li><strong>&lt;p&gt;:</strong> This is a paragraph element used to display text.</li>
+        </ul>
+
+        <h2>HTML Elements</h2>
+        <p>HTML is built using elements that are represented by tags. Tags are enclosed in angle brackets, and most elements come in pairs: an opening tag and a closing tag. The closing tag is similar to the opening tag but with a forward slash before the tag name.</p>
+
+        <h3>Common HTML Tags</h3>
+        <ul>
+            <li><strong>&lt;h1&gt; to &lt;h6&gt;:</strong> Heading tags, used for creating headings of different levels.</li>
+            <div class="code">
+                &lt;h1&gt;Main Heading&lt;/h1&gt;<br>
+                &lt;h2&gt;Subheading&lt;/h2&gt;<br>
+                &lt;h3&gt;Sub-subheading&lt;/h3&gt;
+            </div>
+            <li><strong>&lt;p&gt;:</strong> Paragraph tag, used to define blocks of text.</li>
+            <div class="code">
+                &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+            </div>
+            <li><strong>&lt;a&gt;:</strong> Anchor tag, used for creating hyperlinks to other pages or resources.</li>
+            <div class="code">
+                &lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+            </div>
+            <li><strong>&lt;img&gt;:</strong> Image tag, used to embed images in the webpage.</li>
+            <div class="code">
+                &lt;img src="image.jpg" alt="Description"&gt;
+            </div>
+            <li><strong>&lt;ul&gt; and &lt;ol&gt;:</strong> Lists, used to create unordered or ordered lists.</li>
+            <div class="code">
+                &lt;ul&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;Item 1&lt;/li&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;Item 2&lt;/li&gt;<br>
+                &lt;/ul&gt;
+            </div>
+        </ul>
+
+        <h2>Attributes in HTML</h2>
+        <p>HTML tags can have attributes that provide additional information about an element. Attributes are written inside the opening tag, after the tag name.</p>
+        <h3>Common Attributes</h3>
+        <ul>
+            <li><strong>href:</strong> Used in the &lt;a&gt; tag to define the destination of a hyperlink.</li>
+            <li><strong>src:</strong> Used in the &lt;img&gt; tag to specify the source of an image.</li>
+            <li><strong>alt:</strong> Used in the &lt;img&gt; tag to provide alternative text for images.</li>
+            <li><strong>class:</strong> Used to assign a class to an element, often for styling or JavaScript interactions.</li>
+            <li><strong>id:</strong> Used to assign a unique identifier to an element.</li>
+        </ul>
+
+        <h2>HTML Forms</h2>
+        <p>Forms allow users to input data that is sent to a server. Forms are used for tasks such as submitting contact details, login information, or search queries.</p>
+        <div class="code">
+            &lt;form action="/submit" method="POST"&gt;<br>
+            &nbsp;&nbsp;&lt;label for="name"&gt;Name:&lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="name" name="name"&gt;<br>
+            &nbsp;&nbsp;&lt;input type="submit" value="Submit"&gt;<br>
+            &lt;/form&gt;
+        </div>
+        <p>The above form includes:</p>
+        <ul>
+            <li><strong>&lt;form&gt;:</strong> Defines the form element, with the <code>action</code> attribute specifying where the form data will be sent and the <code>method</code> specifying how data will be sent (e.g., GET or POST).</li>
+            <li><strong>&lt;input&gt;:</strong> Used for various input types, such as text fields, buttons, and checkboxes.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>HTML is the foundational language of web development and is essential for building the structure of any webpage. By mastering HTML, you'll be able to create static webpages and understand the basic building blocks of dynamic web applications. Once you're comfortable with HTML, you can move on to CSS for styling and JavaScript for interactivity to enhance your web development skills.</p>
+    </div>
+    <footer class="dashboard-footer">
+        <button class="active" onclick="window.location.href='dashboard.html'">
+            <img src="images/HomeIcon.png" alt="Home">
+            HOME
+        </button>
+        </button>
+        <button onclick="window.location.href='quiz.html'">
+            <img src="images/quizicon.png" alt="Quiz">
+            QUIZ
+        </button>
+        <button onclick="window.location.href='IDE.html'">
+            <img src="images/projectsicon.png" alt="Projects">
+            PROJECTS
+        </button>
+        <button onclick="window.location.href='assistance.html'">
+            <img src="images/assistanticon.png" alt="Assistance Buddy">
+            ASSISTANCE BUDDY
+        </button>
+        <button onclick="window.location.href='profile.html'">
+            <img src="images/profileicon.png" alt="Profile">
+            ME
+        </button>
+    </footer>
+</body>
+</html>

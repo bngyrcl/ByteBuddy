@@ -1,0 +1,338 @@
+/* Sidebar - Languages Explorer */
+.languages-explorer {
+    padding: 10px;
+    color: #d4d4d4;
+}
+
+.languages-explorer h3 {
+    color: #9cdcfe;
+    margin-bottom: 10px;
+}
+
+.languages-explorer ul {
+    list-style-type: none;
+    gap: 10px;
+}
+
+.languages-explorer ul li {
+    padding: 5px;
+    background: #2d2d2d;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: left;
+}
+
+.languages-explorer ul li:hover {
+    background: #3e3e3e;
+}
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Fira Code', monospace;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack header, main, and footer */
+    min-height: 100vh; /* Ensure the body takes up full viewport height */
+    margin: 0;
+}
+/* Header */
+.ide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #1f4068;
+    color: white;
+    font-family: 'Fira Code', monospace;
+}
+
+.ide-header .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #9cdcfe;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-nav button {
+    background: #278ea5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-family: 'Fira Code', monospace;
+}
+
+.header-nav button:hover {
+    background: #1b2b40;
+    transform: scale(1.05);
+}
+
+/* Main Layout */
+.ide-container {
+    display: flex;
+    flex: 1; /* Allow the main content to expand */
+    height: fit-content; /* No fixed height */
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background: #252526;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #3c3c3c;
+}
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: 'Fira Code', monospace;
+    color: #fff;
+    text-align: center;
+}
+/* Tool Buttons Container */
+.tool-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+    width: 100%; /* Make container take full sidebar width */
+    margin-top: 20px; /* Add some spacing from the top or other elements */
+}
+
+/* Individual Tool Buttons */
+.dashboard-btn {
+    background: #278ea5;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%; /* Make buttons take the full width of the container */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.dashboard-btn:hover {
+    background: #1b2b40;
+    transform: scale(1.05);
+}
+
+.dashboard-btn:active {
+    transform: scale(0.95);
+    background: #162b4b;
+}
+
+.sidebar .file-explorer h3 {
+    color: #9cdcfe;
+    margin-bottom: 10px;
+}
+
+.sidebar .file-explorer ul {
+    list-style-type: none;
+}
+
+.sidebar .file-explorer ul li  {
+    padding: 5px;
+    background: #2d2d2d;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sidebar .file-explorer ul li:hover {
+    background: #3e3e3e;
+}
+
+.sidebar .file-explorer button {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 5px;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.sidebar .file-explorer button:hover {
+    background: #005f9e;
+}
+
+/* Editor and Output */
+.editor-output-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.editor {
+    flex: 1;
+    background: #1e1e1e;
+    padding: 10px;
+}
+
+.editor pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    padding: 10px;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    border: 1px solid #333;
+    border-radius: 4px;
+    height: 300px;
+}
+
+
+.output {
+    height: 25%;
+    background: #252526;
+    color: white;
+    padding: 10px;
+    border-top: 1px solid #3c3c3c;
+    overflow-y: auto;
+}
+
+.output h3 {
+    color: #5d6d75;
+}
+
+/* Status Bar (Footer) */
+.status-bar {
+    background: #007acc;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    position: relative; /* Default position */
+    bottom: 0; /* Ensure it stays at the bottom */
+    z-index: 10; /* Ensure it's above other content */
+    width: 100%; /* Span the entire width of the viewport */
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+    /* Modal Styles */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    }
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
+}
+
+/* Modal Content */
+.modal-content {
+    background: linear-gradient(145deg, #eeeff1, #ffffff); /* Gradient background */
+    border-radius: 20px; /* Rounded corners */
+    margin: 15% auto;
+    padding: 25px;
+    width: 40%; /* Adjusted width */
+    height: 30%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    animation: slideUp 0.5s ease-out; /* Slide-up animation */
+}
+
+/* Close Button */
+.close {
+    color: #ff6b6b; /* Soft red color */
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 9999; /* Ensure the button is above other elements */
+}
+
+/* Close Button Hover */
+.close:hover,
+.close:focus {
+    color: #ff3b3b; /* Darker red on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+/* Modal Text */
+#modalMessage {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(29, 29, 29); /* Use a color that contrasts well with the background */
+    text-align: center; /* Center align the text */
+    padding: 20px;
+    line-height: 5.0; /* Adds space between lines of text */
+}
+/* Button Styles */
+.modal .button {
+    padding: 10px 20px;
+    background-color: #1abc9c; /* Greenish color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.modal .button:hover {
+    background-color: #16a085; /* Darker shade on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
